@@ -19,7 +19,7 @@ import java.util.List;
  * Created by JUANJO FAJARDO on 10/10/2017.
  */
 
-public class CommentAdapterJuanFajardo extends RecyclerView.Adapter<CommentAdapterJuanFajardo.ViewHolder>{
+public class CommentAdapterJuanFajardo {
 
     List<CommentModelJuanFajardo> commenlist = new ArrayList<>();
     Context context;
