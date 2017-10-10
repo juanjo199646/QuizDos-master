@@ -1,10 +1,12 @@
 package com.jonmid.quizdos.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.jonmid.quizdos.Models.UserModelJuanFajardo;
 import com.jonmid.quizdos.R;
@@ -43,13 +45,46 @@ public class UserAdpaterJuanFajardo extends RecyclerView.Adapter<UserAdpaterJuan
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         // Encargado de trabajar con el item.xml y sus componentes
-        holder.textViewSubregion.setText(countryList.get(position).getSubregion());
-        holder.textViewLanguages.setText(countryList.get(position).getLanguages());
-        holder.textViewArea.setText(Integer.toString(countryList.get(position).getArea()));
+        holder.textViewname.setText(userList.get(position).getName());
+        holder.textViewusername.setText(userList.get(position).getUsername());
+        holder.textViewemail.setText(userList.get(position).getEmail());
+        holder.textViewphone.setText(userList.get(position).getPhone());
+
+    }
+
+
+    @Override
+    public int getItemCount() {
+        return userList.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        TextView textViewname;
+        TextView textViewusername;
+        TextView textViewemail;
+        TextView textViewphone;
+        public ViewHolder(View item) {
+            super(item);
+
+            item.setOnClickListener(this);
+
+            textViewname = (TextView) item.findViewById(R.id.id_tv_userinput_name);
+            textViewusername = (TextView) item.findViewById(R.id.id_tv_userinput_username);
+            textViewemail = (TextView) item.findViewById(R.id.id_tv_userinput_email);
+            textViewphone = (TextView) item.findViewById(R.id.id_tv_userinput_phone);
+        }
+
+
+
+        @Override
+        public void onClick(View view) {
+            Context contextItem = view.getContext();
+            Intent intent = new Intent(context, UserModelJuanFajardo.class);
+            contextItem.startActivity(intent);
+        }
     }
 
 
 
 
-
-}
+    }
