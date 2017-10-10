@@ -18,18 +18,18 @@ public class UserJsonJuanFajardo {
     public static List<UserModelJuanFajardo> getData(String content) throws JSONException {
         JSONArray jsonArray = new JSONArray(content);
         List<UserModelJuanFajardo> userModelJuanFajardoList = new ArrayList<>();
-        for (int i = 0; i < jsonArray.length(); i++){
+        for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject item = jsonArray.getJSONObject(i);
 
-            JSONArray languages = item.getJSONArray("languages");
-            JSONObject languagesItem = languages.getJSONObject(0);
 
             UserModelJuanFajardo userModelJuanFajardo = new UserModelJuanFajardo();
-            userModelJuanFajardo.setSubregion(item.getString("subregion"));
-            userModelJuanFajardo.setLanguages(languagesItem.getString("nativeName"));
-            userModelJuanFajardo.setArea(item.getInt("area"));
+            userModelJuanFajardo.setName(item.getString("name"));
+            userModelJuanFajardo.setUsername(item.getString("username"));
+            userModelJuanFajardo.setEmail(item.getString("email"));
+            userModelJuanFajardo.setPhone(item.getString("phone"));
 
             userModelJuanFajardoList.add(userModelJuanFajardo);
         }
         return userModelJuanFajardoList;
     }
+}
