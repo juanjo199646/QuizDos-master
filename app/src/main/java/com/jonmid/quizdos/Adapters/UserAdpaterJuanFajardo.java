@@ -23,8 +23,8 @@ public class UserAdpaterJuanFajardo extends RecyclerView.Adapter<UserAdpaterJuan
     List<UserModelJuanFajardo> userList = new ArrayList<>();
     Context context;
 
-    public UserAdpaterJuanFajardo(List<UserModelJuanFajardo> countryList, Context context) {
-        this.userList = countryList;
+    public UserAdpaterJuanFajardo(List<UserModelJuanFajardo> userList, Context context) {
+        this.userList = userList;
         this.context = context;
 
     }
